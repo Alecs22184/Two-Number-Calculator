@@ -100,18 +100,31 @@ int main()
     while (true)
     {
         Calculator calculator;
-        std::cout << "Введите num1=";
-        std::cin >> calculator.num1;
-        std::cout << "Введите num2=";
-        std::cin >> calculator.num2;
-        calculator.set_num1(calculator.num1, set_num1);
-        calculator.set_num2(calculator.num2, set_num2);
-        if (set_num1 == 0 || set_num2 == 0) 
-        {
-            std::cout << " Неверный ввод!" << std::endl;
-            continue;
-        }
+         
+        do {
+            std::cout << "Введите num1=";
+            std::cin >> calculator.num1;
+            calculator.set_num1(calculator.num1, set_num1);
+            if (set_num1 == 0) 
+            {
+                std::cout << " Неверный ввод!" << std::endl;
+            }
 
+        } while (set_num1 == 0);
+
+          
+                do {
+
+                    std::cout << "Введите num2=";
+                    std::cin >> calculator.num2;
+                    calculator.set_num2(calculator.num2, set_num2);
+                    if (set_num2 == 0)
+                    {
+                        std::cout << " Неверный ввод!" << std::endl;
+                    }
+                } while (set_num2 == 0);
+
+           
 
         calculator.double_add(calculator.num1, calculator.num2, result_add);
         calculator.subtract_1_2(calculator.num1, calculator.num2, result_subtract_1_2);
