@@ -4,80 +4,91 @@
 #include <iostream>
 
 class Calculator {
-public:
+private :
     double num1;
     double num2;
+public:
+    Calculator(double num1, double num2) {
+        this-> num1 =  num1;
+        this-> num2 =  num2;
+    }
    
-    double double_add(double num1, double num2, double &result_add)
+    double double_add()// метод выполняет сложение num1+num2
     {
-        result_add = num1 + num2;
-        return result_add;
+       // result_add = num1 + num2;
+        return (num1+num2);
     }
 
-    double subtract_1_2(double num1, double num2, double &result_subtract_1_2)
+    double subtract_1_2() // метод выполняет вычитание num1 - num2
     {
-        result_subtract_1_2 = num2- num1;
-        return result_subtract_1_2;
+       // result_subtract_1_2 = num2- num1;
+        return (num1 - num2);
     }
 
-    double subtract_2_1(double num1, double num2, double &result_subtract_2_1)
+    double subtract_2_1() // метод выполняет вычитание num2 - num1
     {
-        result_subtract_2_1 = num1 - num2;
-        return result_subtract_2_1;
+        //result_subtract_2_1 = num1 - num2;
+        return (num2 - num1);
     }
 
-    double divide_1_2(double num1, double num2, double &result_divide_1_2)
+    double divide_1_2()// метод выполняет деление num1 / num2
     {
-        result_divide_1_2 = num1 / num2;
-        return result_divide_1_2;
+       // result_divide_1_2 = num1 / num2;
+        return (num1 / num2);
     }
 
-    double divide_2_1(double num1, double num2, double &result_divide_2_1)
+    double divide_2_1()// метод выполняет деление num2 / num1
     {
-        result_divide_2_1 =  num2 / num1  ;
-        return result_divide_2_1;
+       // result_divide_2_1 =  num2 / num1  ;
+        return  (num2 / num1);
     }
 
-    double result_multiply(double num1, double num2, double &result_multiply)
+    double result_multiply()// метод выполняет умножение num1 * num2
     {
-        result_multiply = num2 * num1;
-        return result_multiply;
+       // result_multiply = num2 * num1;
+        return ( num1 * num2);
     }
 
-    bool set_num1(double num1, bool &set_num1)
+    bool set_num1(double set_num1, bool &set1)// метод  проверяет  значение на !=0 и устанавливает значение num1
     {
-        if (num1 != 0)
+        if (set_num1 != 0)
         {
-          this->num1 = num1;
-          set_num1 = true;
+            //set1 = true;
+          this->num1 = set_num1;
+          if (num1 >= 1) 
+          {
+              set1 = true;
+          }
           
-          return true;
+          
+          return (set1);
 
         }
         else  
         {
-            set_num1 = false;
+            set1 = false;
             
-            return false;
+            return set1;
         }
 
     }
 
-    bool set_num2(double &num2, bool& set_num2)
+    bool set_num2(double set_num2, bool &set2) // метод  проверяет  значение на !=0 и устанавливает значение num2
     {
-        if (num2 != 0)
+        if (set_num2 != 0)
         {
-            this->num2 = num2;
-            set_num2 = true;
+            set2 = true;
+            this->num2 = set_num2;
+            
 
-            return true;
+            return  set2;
 
         }
         else
         {
-            set_num2 = false;
+            set2 = false;
 
-            return false;
+            return  set2;
         }
 
     }
@@ -89,57 +100,58 @@ int main()
 {
     setlocale(LC_ALL, "rus");
 
-    double result_add{};
-    double result_subtract_1_2{};
-    double result_subtract_2_1{};
-    double result_divide_1_2{};
-    double result_divide_2_1{};
-    double result_multiply{};
-    bool set_num1{};
-    bool set_num2{};
+    //double result_add{};
+   // double result_subtract_1_2{};
+    //double result_subtract_2_1{};
+    //double result_divide_1_2{};
+   // double result_divide_2_1{};
+    //double result_multiply{};
+    bool set1{};
+    bool set2{};
+    double set_num1{};
+    double set_num2{};
+    Calculator calculator(0, 0);
+
     while (true)
     {
-        Calculator calculator;
+        
          
         do {
             std::cout << "Введите num1=";
-            std::cin >> calculator.num1;
-            calculator.set_num1(calculator.num1, set_num1);
-            if (set_num1 == 0) 
+            std::cin >> set_num1;
+
+            calculator.set_num1(set_num1, set1);
+            
+            if (set1 == false)
             {
                 std::cout << " Неверный ввод!" << std::endl;
             }
 
-        } while (set_num1 == 0);
+        } while (set1 == false);
 
           
-                do {
+                do 
+                {
 
                     std::cout << "Введите num2=";
-                    std::cin >> calculator.num2;
-                    calculator.set_num2(calculator.num2, set_num2);
-                    if (set_num2 == 0)
+                    std::cin >> set_num2;
+                    calculator.set_num2(set_num2,  set2);
+                    if (set2 == false)
                     {
                         std::cout << " Неверный ввод!" << std::endl;
                     }
-                } while (set_num2 == 0);
+                } 
+                while (set2 == false);
 
-           
+         
 
-        calculator.double_add(calculator.num1, calculator.num2, result_add);
-        calculator.subtract_1_2(calculator.num1, calculator.num2, result_subtract_1_2);
-        calculator.subtract_2_1(calculator.num1, calculator.num2, result_subtract_2_1);
-        calculator.divide_1_2(calculator.num1, calculator.num2, result_divide_1_2);
-        calculator.divide_2_1(calculator.num1, calculator.num2, result_divide_2_1);
-        calculator.result_multiply(calculator.num1, calculator.num2, result_multiply);
-
-        std::cout << "num1 + num2 =" << " " << result_add << std::endl;
-        std::cout << "num2 - num1 =" << " " << result_subtract_1_2 << std::endl;
-        std::cout << "num1 - num2 =" << " " << result_subtract_2_1 << std::endl;
-        std::cout << "num1 / num2 =" << " " << result_divide_1_2 << std::endl;
-        std::cout << "num2 / num1 =" << " " << result_divide_2_1 << std::endl;
-        std::cout << "num2 х num1 =" << " " << result_multiply << std::endl;
-
+        std::cout << "num1 + num2 =" << " " << calculator.double_add() << std::endl;
+        std::cout << "num1 - num2 =" << " " << calculator.subtract_1_2()  << std::endl;
+        std::cout << "num2 - num1 =" << " " << calculator.subtract_2_1() << std::endl;
+        std::cout << "num1 / num2 =" << " " << calculator.divide_1_2() << std::endl;
+        std::cout << "num2 / num1 =" << " " << calculator.divide_2_1() << std::endl;
+        std::cout << "num1 х num2 =" << " " << calculator.result_multiply() << std::endl;
+        
     }
 
 }
