@@ -15,37 +15,37 @@ public:
    
     double double_add()// метод выполняет сложение num1+num2
     {
-       // result_add = num1 + num2;
+       
         return (num1+num2);
     }
 
     double subtract_1_2() // метод выполняет вычитание num1 - num2
     {
-       // result_subtract_1_2 = num2- num1;
+       
         return (num1 - num2);
     }
 
     double subtract_2_1() // метод выполняет вычитание num2 - num1
     {
-        //result_subtract_2_1 = num1 - num2;
+       
         return (num2 - num1);
     }
 
     double divide_1_2()// метод выполняет деление num1 / num2
     {
-       // result_divide_1_2 = num1 / num2;
+       
         return (num1 / num2);
     }
 
     double divide_2_1()// метод выполняет деление num2 / num1
     {
-       // result_divide_2_1 =  num2 / num1  ;
+      
         return  (num2 / num1);
     }
 
     double result_multiply()// метод выполняет умножение num1 * num2
     {
-       // result_multiply = num2 * num1;
+       
         return ( num1 * num2);
     }
 
@@ -53,7 +53,7 @@ public:
     {
         if (set_num1 != 0)
         {
-            //set1 = true;
+        
           this->num1 = set_num1;
           if (num1 >= 1) 
           {
@@ -100,12 +100,7 @@ int main()
 {
     setlocale(LC_ALL, "rus");
 
-    //double result_add{};
-   // double result_subtract_1_2{};
-    //double result_subtract_2_1{};
-    //double result_divide_1_2{};
-   // double result_divide_2_1{};
-    //double result_multiply{};
+    
     bool set1{};
     bool set2{};
     double set_num1{};
@@ -156,13 +151,3 @@ int main()
 
 }
 
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
